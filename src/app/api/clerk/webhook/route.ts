@@ -26,6 +26,4 @@ export const POST = async (req : Request)=>{
     }else{
         return new Response ("Unable to create User")
     }
-
-    
 }
