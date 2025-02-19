@@ -9,9 +9,10 @@ export const getAurinkoAuthUrl = async (serviceType : "Google" | "Office365")=>{
         const params = new URLSearchParams({
             clientId : process.env.AURINKO_CLIENT_ID as string,
             serviceType,
+            access_type : "offline",
             scopes : "Mail.Read Mail.ReadWrite Mail.Send Mail.Drafts Mail.All",
             responseType : "code",
-            returnUrl : `${process.env.NEXT_PUBLIC_URL}/api/aurinko/callback`
+            redirect_uri : `${process.env.NEXT_PUBLIC_URL}/api/aurinko/callback`
         })
 
         console.log(params.toString())
