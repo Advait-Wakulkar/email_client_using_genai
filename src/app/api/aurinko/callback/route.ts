@@ -3,8 +3,12 @@ import { NextResponse } from "next/server"
 
 export const GET = async(req:Request)=>{
     const {userId} = await auth()
-    console.log(userId + 'is the user')
+
+    if (!userId) return NextResponse.json(
+        {message : 'Unauthorized'},
+        {status : 401})
+
     return NextResponse.json({
-        message : "Hellow World"
+        message : "Hello World"
     })
 }
