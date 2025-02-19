@@ -7,8 +7,9 @@ export default async function Home() {
 
   void api.post.getLatest.prefetch();
 
-  return (<>
-  <Link_Account_Button></Link_Account_Button>
+  return (
+  <>
+    <Link_Account_Button></Link_Account_Button>
   </>
   );
 }
