@@ -8,9 +8,10 @@ export const GET = async (req: NextRequest) => {
     if (!userId) return NextResponse.json({ error: "UNAUTHORIZED" }, { status: 401 });
 
     const params = req.nextUrl.searchParams
-    const code = params.get('code');
+    console.log("REQ.NEXTURL          ",req.nextUrl)
+    const code = params.get('accessToken');
 
-    console.log("CODE          ",code)
+    console.log("Token : ", params.get('accessToken'))
 
     const token = await getAurinkoToken(code as string)
 

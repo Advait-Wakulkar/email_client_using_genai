@@ -10,10 +10,11 @@ export const getAurinkoAuthorizationUrl = async (serviceType: 'Google' | 'Office
         clientId: process.env.AURINKO_CLIENT_ID as string,
         serviceType,
         scopes: 'Mail.Read Mail.ReadWrite Mail.Send Mail.Drafts Mail.All',
-        responseType: 'code',
-        returnUrl: `${process.env.NEXT_PUBLIC_URL}/api/aurinko/callback`,
-        authEmail : 'wakulkaradvait@gmail.com'
+        responseType: 'token',
+        returnUrl: `http://localhost:3000/api/aurinko/callback`
     });
+
+    console.log(`https://api.aurinko.io/v1/auth/authorize?${params.toString()}`)
 
     return `https://api.aurinko.io/v1/auth/authorize?${params.toString()}`;
 };

@@ -8,7 +8,6 @@ export function Link_Account_Button() {
     <Button onClick={async ()=>{
         const authUrl = await getAurinkoAuthorizationUrl('Google')
         window.location.href = authUrl
-        console.log(authUrl)
     }}>Link Account</Button>
   );
 }
